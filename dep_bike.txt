@@ -1,0 +1,168 @@
+Starting a Gradle Daemon (subsequent builds will be faster)
+Incremental java compilation is an incubating feature.
+:bikeRace:dependencies
+
+------------------------------------------------------------
+Project :bikeRace
+------------------------------------------------------------
+
+compile - Classpath for compiling the main sources.
++--- com.android.support:support-v4:25.3.1
+|    +--- com.android.support:support-compat:25.3.1
+|    |    \--- com.android.support:support-annotations:25.3.1
+|    +--- com.android.support:support-media-compat:25.3.1
+|    |    +--- com.android.support:support-annotations:25.3.1
+|    |    \--- com.android.support:support-compat:25.3.1 (*)
+|    +--- com.android.support:support-core-utils:25.3.1
+|    |    +--- com.android.support:support-annotations:25.3.1
+|    |    \--- com.android.support:support-compat:25.3.1 (*)
+|    +--- com.android.support:support-core-ui:25.3.1
+|    |    +--- com.android.support:support-annotations:25.3.1
+|    |    \--- com.android.support:support-compat:25.3.1 (*)
+|    \--- com.android.support:support-fragment:25.3.1
+|         +--- com.android.support:support-compat:25.3.1 (*)
+|         +--- com.android.support:support-media-compat:25.3.1 (*)
+|         +--- com.android.support:support-core-ui:25.3.1 (*)
+|         \--- com.android.support:support-core-utils:25.3.1 (*)
++--- com.google.android.gms:play-services-ads:9.4.0
+|    +--- com.google.android.gms:play-services-ads-lite:9.4.0
+|    |    \--- com.google.android.gms:play-services-basement:9.4.0
+|    |         \--- com.android.support:support-v4:23.0.0 -> 25.3.1 (*)
+|    +--- com.google.android.gms:play-services-base:9.4.0
+|    |    +--- com.google.android.gms:play-services-basement:9.4.0 (*)
+|    |    \--- com.google.android.gms:play-services-tasks:9.4.0
+|    |         \--- com.google.android.gms:play-services-basement:9.4.0 (*)
+|    +--- com.google.android.gms:play-services-clearcut:9.4.0
+|    |    +--- com.google.android.gms:play-services-base:9.4.0 (*)
+|    |    \--- com.google.android.gms:play-services-basement:9.4.0 (*)
+|    +--- com.google.android.gms:play-services-basement:9.4.0 (*)
+|    \--- com.google.android.gms:play-services-gass:9.4.0
+|         \--- com.google.android.gms:play-services-basement:9.4.0 (*)
++--- com.google.android.gms:play-services-analytics:9.4.0
+|    +--- com.google.android.gms:play-services-analytics-impl:9.4.0
+|    |    +--- com.google.android.gms:play-services-base:9.4.0 (*)
+|    |    \--- com.google.android.gms:play-services-basement:9.4.0 (*)
+|    +--- com.google.android.gms:play-services-base:9.4.0 (*)
+|    \--- com.google.android.gms:play-services-basement:9.4.0 (*)
++--- com.google.android.gms:play-services-gcm:9.4.0
+|    +--- com.google.android.gms:play-services-base:9.4.0 (*)
+|    +--- com.google.android.gms:play-services-basement:9.4.0 (*)
+|    \--- com.google.android.gms:play-services-iid:9.4.0
+|         +--- com.google.android.gms:play-services-base:9.4.0 (*)
+|         \--- com.google.android.gms:play-services-basement:9.4.0 (*)
++--- com.google.android.gms:play-services-games:9.4.0
+|    +--- com.google.android.gms:play-services-base:9.4.0 (*)
+|    +--- com.google.android.gms:play-services-basement:9.4.0 (*)
+|    \--- com.google.android.gms:play-services-drive:9.4.0
+|         +--- com.google.android.gms:play-services-base:9.4.0 (*)
+|         \--- com.google.android.gms:play-services-basement:9.4.0 (*)
++--- com.android.support:appcompat-v7:25.3.1
+|    +--- com.android.support:support-annotations:25.3.1
+|    +--- com.android.support:support-v4:25.3.1 (*)
+|    +--- com.android.support:support-vector-drawable:25.3.1
+|    |    +--- com.android.support:support-annotations:25.3.1
+|    |    \--- com.android.support:support-compat:25.3.1 (*)
+|    \--- com.android.support:animated-vector-drawable:25.3.1
+|         \--- com.android.support:support-vector-drawable:25.3.1 (*)
++--- com.android.support:recyclerview-v7:25.3.1
+|    +--- com.android.support:support-annotations:25.3.1
+|    +--- com.android.support:support-compat:25.3.1 (*)
+|    \--- com.android.support:support-core-ui:25.3.1 (*)
++--- com.android.support:cardview-v7:25.3.1
+|    \--- com.android.support:support-annotations:25.3.1
++--- com.android.support:customtabs:25.3.1
+|    +--- com.android.support:support-compat:25.3.1 (*)
+|    \--- com.android.support:support-annotations:25.3.1
++--- com.facebook.android:facebook-android-sdk:4.+ -> 4.24.0
+|    +--- com.android.support:support-v4:25.3.1 (*)
+|    +--- com.android.support:appcompat-v7:25.3.1 (*)
+|    +--- com.android.support:cardview-v7:25.3.1 (*)
+|    +--- com.android.support:customtabs:25.3.1 (*)
+|    \--- com.parse.bolts:bolts-android:1.4.0
+|         +--- com.parse.bolts:bolts-tasks:1.4.0
+|         \--- com.parse.bolts:bolts-applinks:1.4.0
+|              \--- com.parse.bolts:bolts-tasks:1.4.0
++--- com.crashlytics.sdk.android:crashlytics:2.5.5
+|    +--- com.crashlytics.sdk.android:answers:1.3.6
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- com.crashlytics.sdk.android:crashlytics-core:2.3.8
+|    |    +--- com.crashlytics.sdk.android:answers:1.3.6 (*)
+|    |    \--- io.fabric.sdk.android:fabric:1.3.10
+|    +--- io.fabric.sdk.android:fabric:1.3.10
+|    \--- com.crashlytics.sdk.android:beta:1.1.4
++--- com.tfg.libs:core:1.1.0 -> 1.1.3
+|    \--- com.android.support:support-v4:23.4.0 -> 25.3.1 (*)
++--- com.tfg.libs:analytics:1.4.13
+|    +--- com.flurry.android:analytics:7.0.0
+|    +--- com.google.android.gms:play-services-analytics:8.4.0 -> 9.4.0 (*)
+|    +--- com.google.code.gson:gson:2.4 -> 2.7
+|    +--- com.tfg.libs:core:1.1.3 (*)
+|    \--- com.tfg.libs:analytics-topaz:1.4.13
+|         +--- com.google.android.gms:play-services-analytics:8.4.0 -> 9.4.0 (*)
+|         \--- com.tfg.libs:core:1.1.3 (*)
++--- com.tfg.libs:secnet:1.1.1 -> 1.2.6
+|    \--- com.tfg.libs:core:1.1.3 (*)
++--- com.tfg.libs:remoteconfig:2.1.0
+|    +--- com.google.code.gson:gson:2.4 -> 2.7
+|    +--- com.google.android.gms:play-services-analytics:8.4.0 -> 9.4.0 (*)
+|    +--- com.tfg.libs:core:1.1.3 (*)
+|    +--- com.tfg.libs:secnet:1.2.1 -> 1.2.6 (*)
+|    \--- com.tfg.libs:analytics:1.4.5 -> 1.4.13 (*)
++--- com.tfg.libs:billing:2.0.0
+|    +--- com.tfg.libs:core:1.1.3 (*)
+|    \--- com.tfg.libs:analytics:1.4.7 -> 1.4.13 (*)
++--- com.tfg.libs:pomelo:1.1.4
+|    +--- com.tfg.libs:core:1.1.3 (*)
+|    \--- com.google.protobuf:protobuf-java-util:3.2.0
+|         +--- com.google.protobuf:protobuf-java:3.2.0
+|         +--- com.google.guava:guava:18.0
+|         \--- com.google.code.gson:gson:2.7
++--- com.tfg.libs:customer-support:1.1.3
+|    +--- com.android.support:support-v4:23.4.0 -> 25.3.1 (*)
+|    +--- com.tfg.libs:core:1.1.3 (*)
+|    +--- com.tfg.libs:analytics:1.4.8 -> 1.4.13 (*)
+|    +--- com.tfg.libs:remoteconfig:2.1.0 (*)
+|    +--- com.tfg.libs:billing:1.2.3 -> 2.0.0 (*)
+|    +--- com.tfg.libs:secnet:1.2.3 -> 1.2.6 (*)
+|    \--- com.tfg.libs:customer-support-helpstack:1.1.3
+|         +--- com.android.support:support-v4:23.4.0 -> 25.3.1 (*)
+|         +--- com.google.code.gson:gson:2.4 -> 2.7
+|         \--- com.mcxiaoke.volley:library:1.0.5
++--- com.tfg.libs:notifications:1.0.7
+|    +--- com.google.code.gson:gson:2.4 -> 2.7
+|    +--- com.google.android.gms:play-services-analytics:8.4.0 -> 9.4.0 (*)
+|    +--- com.google.android.gms:play-services-gcm:8.4.0 -> 9.4.0 (*)
+|    +--- com.android.support:support-v4:23.4.0 -> 25.3.1 (*)
+|    +--- com.tfg.libs:core:1.1.3 (*)
+|    +--- com.tfg.libs:secnet:1.2.6 (*)
+|    +--- com.tfg.libs:analytics:1.4.9 -> 1.4.13 (*)
+|    \--- com.tfg.libs:remoteconfig:2.1.0 (*)
++--- com.tfg.libs:ads:1.4.1
+|    +--- com.android.support:appcompat-v7:23.4.0 -> 25.3.1 (*)
+|    +--- com.google.android.gms:play-services-ads:8.4.0 -> 9.4.0 (*)
+|    +--- com.google.code.gson:gson:2.4 -> 2.7
+|    +--- com.tfg.libs:core:1.1.0 -> 1.1.3 (*)
+|    +--- com.tfg.libs:analytics:1.4.0 -> 1.4.13 (*)
+|    \--- com.tfg.libs:secnet:1.1.1 -> 1.2.6 (*)
++--- com.tfg.libs:ads-adcolony:1.4.1
+|    \--- com.android.support:appcompat-v7:23.4.0 -> 25.3.1 (*)
++--- com.tfg.libs:ads-admob:1.4.1
+|    \--- com.google.android.gms:play-services-ads:8.4.0 -> 9.4.0 (*)
++--- com.tfg.libs:ads-heyzap:1.4.1
+|    \--- com.android.support:appcompat-v7:23.4.0 -> 25.3.1 (*)
++--- com.tfg.libs:ads-inmobi:1.4.1
+|    \--- com.google.android.gms:play-services-ads:8.4.0 -> 9.4.0 (*)
++--- com.tfg.libs:ads-vungle:1.4.1
+|    \--- com.google.android.gms:play-services-ads:8.4.0 -> 9.4.0 (*)
++--- com.tfg.libs:ads-unityads:1.4.1
+|    \--- com.tfg.libs:ads-unityads-sdk:1.5.8
++--- com.tfg.libs:ads-startapp:1.4.1
+|    \--- com.android.support:appcompat-v7:23.4.0 -> 25.3.1 (*)
+\--- com.tfg.libs:ads-applovin:1.4.1
+     \--- com.google.android.gms:play-services-ads:8.4.0 -> 9.4.0 (*)
+
+(*) - dependencies omitted (listed previously)
+
+BUILD SUCCESSFUL
+
+Total time: 8.502 secs
